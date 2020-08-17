@@ -1,9 +1,19 @@
-variable "subnet_id" {
+variable "public_subnet_id" {
   type = string
-  description = "Id of the subnet"
+  description = "Id of the public subnet"
 }
 
-variable "route_table_id" {
+variable "public_route_table_id" {
   type = string
-  description = "Id of the route table"
+  description = "Id of the public route table"
+}
+
+variable "private_subnet_id" {
+  type = string
+  description = "Id of the private subnet"
+}
+
+variable "private_route_table_id" {
+  type = string
+  description = "Id of the private route table"
 }

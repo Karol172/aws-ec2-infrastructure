@@ -5,7 +5,12 @@ variable "vpc_id" {
 
 variable "gw_id" {
   type = string
-  description = "Id of the gw"
+  description = "Id of the gateway"
+}
+
+variable "nat_gw_id" {
+  type = string
+  description = "Id of the NAT gateway"
 }
 
 variable "environment_tag" {

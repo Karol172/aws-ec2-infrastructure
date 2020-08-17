@@ -36,17 +36,27 @@ module "gateway" {
   vpc_id = module.vpc.vpc_id
 }
 
+module "nat_gateway" {
+  source = "../modules/nat"
+  internet_gw = module.gateway
+  public_subnet_id = module.public_subnet.subnet_id
+  environment_tag = var.env_tag
+}
+
 module "route_table" {
   source = "../modules/route_table"
   environment_tag = var.env_tag
   gw_id = module.gateway.gw_id
   vpc_id = module.vpc.vpc_id
+  nat_gw_id = module.nat_gateway.id
 }
 
 module "route_table_association" {
   source = "../modules/route_table_association"
-  route_table_id = module.route_table.route_table_id
-  subnet_id = module.public_subnet.subnet_id
+  private_route_table_id = module.route_table.private_route_table_id
+  private_subnet_id = module.private_subnet.subnet_id
+  public_route_table_id = module.route_table.public_route_table_id
+  public_subnet_id = module.public_subnet.subnet_id
 }
 
 module "ami" {
