@@ -12,3 +12,4 @@ variable "environment_tag" {
   type = string
   description = "The environment tag"
 }
+

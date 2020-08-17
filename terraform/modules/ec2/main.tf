@@ -4,6 +4,7 @@ resource "aws_instance" "ec2" {
   subnet_id = var.subnet_id
   key_name = var.key_name
   vpc_security_group_ids = var.security_groups
+
   tags = {
     Environment = var.environment_tag
   }

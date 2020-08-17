@@ -1,9 +1,7 @@
-
 resource "aws_security_group" "sg_22" {
   name = "sg_22"
   vpc_id = var.vpc_id
 
-  # SSH access from the VPC
   ingress {
     from_port   = 22
     to_port     = 22

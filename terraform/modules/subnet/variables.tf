@@ -17,3 +17,8 @@ variable "environment_tag" {
   type = string
   description = "The environment tag"
 }
+
+variable "map_public_ip" {
+  type = bool
+  default = false
+}
