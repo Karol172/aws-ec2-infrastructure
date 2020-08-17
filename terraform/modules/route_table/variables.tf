@@ -3,14 +3,9 @@ variable "vpc_id" {
   description = "Id of the VPC"
 }
 
-variable "cidr_block" {
+variable "gw_id" {
   type = string
-  description = "The CIDR block for subnet"
-}
-
-variable "availability_zone" {
-  type = string
-  description = "The availability zone"
+  description = "Id of the gw"
 }
 
 variable "environment_tag" {

@@ -1,7 +1,6 @@
-variable "cidr_block" {
-  default = "10.0.0.0/16"
+variable "vpc_id" {
   type = string
-  description = "The CIDR block for the VPC"
+  description = "Id of the VPC"
 }
 
 variable "environment_tag" {

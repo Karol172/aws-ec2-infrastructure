@@ -1,7 +1,6 @@
-variable "cidr_block" {
-  default = "10.0.0.0/16"
+variable "key_name" {
+  description = "Name of the RSA key"
   type = string
-  description = "The CIDR block for the VPC"
 }
 
 variable "environment_tag" {

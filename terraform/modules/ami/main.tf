@@ -7,4 +7,8 @@ data "aws_ami" "ami" {
     values = ["ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*"]
   }
 
+  tags = {
+    Environment = var.environment_tag
+  }
+
 }
