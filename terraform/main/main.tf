@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "eu-central-1"
+  region = var.region
 }
 
 variable "env_tag" {
@@ -8,25 +8,25 @@ variable "env_tag" {
 
 module "vpc" {
   source = "../modules/vpc"
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.vpc_cidr_block
   environment_tag = var.env_tag
 }
 
 module "public_subnet" {
   source = "../modules/subnet"
   vpc_id = module.vpc.vpc_id
-  cidr_block = "10.0.0.0/24"
+  cidr_block = var.public_cidr_block
   environment_tag = var.env_tag
-  availability_zone = "eu-central-1a"
+  availability_zone = var.azs
   map_public_ip = true
 }
 
 module "private_subnet" {
   source = "../modules/subnet"
   vpc_id = module.vpc.vpc_id
-  cidr_block = "10.0.1.0/24"
+  cidr_block = var.private_cidr_block
   environment_tag = var.env_tag
-  availability_zone = "eu-central-1a"
+  availability_zone = var.azs
   map_public_ip = false
 }
 
